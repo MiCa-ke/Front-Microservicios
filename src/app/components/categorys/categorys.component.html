@@ -1,1 +1,21 @@
-<p>categorys works!</p>
+<h2 class="mb-5"> Mis categorias </h2>
+
+<table class="table table-hover">
+    <thead> 
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       @for (category of categorys; track category.id) {
+         <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>{{ category.descripcion }}</td>
+         </tr>
+       }
+    </tbody>
+</table>

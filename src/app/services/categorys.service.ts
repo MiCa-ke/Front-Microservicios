@@ -9,7 +9,7 @@ import { Category } from '../model/Category';
 export class CategorysService {
 
   /**
-   * URL base del microservicio categoria
+   * URLbase del servicio de categorías en el backend
    */
   private baseUrl = 'http://localhost:8080/api/category';
   /**
@@ -18,10 +18,33 @@ export class CategorysService {
   constructor(private httpClient: HttpClient) { 
   }
   /**
-   * Permite ver todas las categorias
+   * Se conecta con el microservicio de  categoria permitiendo verlas
    */
   consultarCategory() : Observable<Category[]> {
     return this.httpClient.get<Category[]>(`${this.baseUrl}/all`);
   }
-
+  /** 
+   * Método para crear una nueva categoría
+   */
+  crearCategory(categoria: Category): Observable<any> {
+    return this.httpClient.post<any>(`${this.baseUrl}/create`, categoria);
+  }
+  /**
+   * Método para editar una categoría existente
+   */
+  editarCategory(id: number, categoria: Category): Observable<any> {
+    return this.httpClient.put<any>(`${this.baseUrl}/update/${id}`, categoria);
+  }
+  /**
+   * Método para eliminar una categoría existente
+   */
+  eliminarCategory(id: number): Observable<any> {
+    return this.httpClient.delete<any>(`${this.baseUrl}/delete/${id}`);
+  }
+  /**
+   * Metodo para buscar productos por categoria
+   */
+  buscarProductosPorCategoria(categoryId: number): Observable<any> {
+    return this.httpClient.get<any>(`${this.baseUrl}/search-product/${categoryId}`);
+  }
 }

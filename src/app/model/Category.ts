@@ -5,7 +5,7 @@ export class Category {
 	/**
  	* identificador
  	*/
-	public id: number;
+	public id?: number;
 	/**
  	* Nombre de la categoria
  	*/
@@ -15,7 +15,7 @@ export class Category {
  	*/
 	public descripcion: string;
 
-	constructor(id: number, name: string, descripcion: string) {
+	constructor(name: string, descripcion: string, id?: number, ) {
         this.id = id;
         this.name = name;
         this.descripcion = descripcion;
