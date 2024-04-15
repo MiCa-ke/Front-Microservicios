@@ -13,12 +13,13 @@ export class Category {
 	/**
 	 * Descripcion de la categoria
  	*/
-	public descripcion: string;
+	 public descripcion: string ;
 
-	constructor(name: string, descripcion: string, id?: number, ) {
+
+	constructor(name: string, descripcion: string , id?: number, ) {
         this.id = id;
         this.name = name;
-        this.descripcion = descripcion;
+		this.descripcion = descripcion; 
     }
 
 }

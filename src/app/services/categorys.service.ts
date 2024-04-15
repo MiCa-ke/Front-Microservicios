@@ -11,17 +11,23 @@ export class CategorysService {
   /**
    * URLbase del servicio de categorías en el backend
    */
-  private baseUrl = 'http://localhost:8080/api/category';
+  private baseUrl = 'http://localhost:3000/api/category';
   /**
    * Constructor que inicializa el servicio
    */
   constructor(private httpClient: HttpClient) { 
   }
   /**
-   * Se conecta con el microservicio de  categoria permitiendo verlas
+   * Se conecta con el microservicio de  categoria permitiendo ver todas las categorias
    */
   consultarCategory() : Observable<Category[]> {
     return this.httpClient.get<Category[]>(`${this.baseUrl}/all`);
+  }
+  /**
+   * Metodo para buscar una categoria por su id
+   */
+  buscarCategoria(id: number): Observable<Category> {
+    return this.httpClient.get<Category>(`${this.baseUrl}/search/${id}`);
   }
   /** 
    * Método para crear una nueva categoría

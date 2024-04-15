@@ -6,22 +6,23 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { CategorysComponent } from './components/categorys/categorys.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
 const routes: Routes = []; 
 
 
 @NgModule({
   declarations: [
-    CategorysComponent
+    CategorysComponent,
+    CategoryFormComponent
   ],
   imports: [
+    BrowserModule,
     CommonModule,
     RouterModule.forRoot(routes),
     NgbModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [],
@@ -29,5 +30,6 @@ const routes: Routes = [];
 export class ModuloModule { }
 
 import { bootstrapApplication } from '@angular/platform-browser';
+import { CategoryFormComponent } from './category-form/category-form.component';
 
 bootstrapApplication(AppComponent);
