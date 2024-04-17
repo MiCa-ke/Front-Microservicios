@@ -7,9 +7,8 @@ import { Category } from '../model/Category';
   providedIn: 'root'
 })
 export class CategorysService {
-
   /**
-   * URLbase del servicio de categorías en el backend
+   * URLbase del servicio de categorías en el microservicio
    */
   private baseUrl = 'http://localhost:3000/api/category';
   /**
@@ -18,7 +17,7 @@ export class CategorysService {
   constructor(private httpClient: HttpClient) { 
   }
   /**
-   * Se conecta con el microservicio de  categoria permitiendo ver todas las categorias
+   * Metodo para obtener todas las categorias
    */
   consultarCategory() : Observable<Category[]> {
     return this.httpClient.get<Category[]>(`${this.baseUrl}/all`);

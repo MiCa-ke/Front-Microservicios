@@ -1,0 +1,36 @@
+<h2 class="mb-5"> Mis Facturas </h2>
+
+<div class="text-end">
+    <button class="btn btn-primary" routerLink="/factura-creada">
+        Nueva Factura
+    </button>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>NIT</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (Factura of facturas; track Factura.id){
+            <tr>
+                <td>{{ Factura.id }}</td>
+                <td>{{ Factura.name }}</td>
+                <td>{{ Factura.nit }}</td>
+                <td>{{ Factura.total }}</td>        
+                <td class="text-end">
+                    <button class="btn btn-danger" (click)="eliminarFactura(Factura)">
+                        Eliminar
+                    </button>
+                </td>        
+            </tr>                               
+        }
+    </tbody>
+
+</table>

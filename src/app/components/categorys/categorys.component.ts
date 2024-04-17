@@ -3,6 +3,7 @@ import { Category } from '../../model/Category';
 import { CategorysService } from '../../services/categorys.service';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-categorys',
   standalone: true,
@@ -10,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   templateUrl: './categorys.component.html',
   styleUrl: './categorys.component.css'
 })
+
 export class CategorysComponent implements OnInit {
   /**
    * Categorias a mostrar
@@ -24,7 +26,7 @@ export class CategorysComponent implements OnInit {
       this.loadAll();
     }
   /**
-   * Funcion para consultar las categorias muestra las categorias
+   * Funcion para consultar las categorias 
    */
     loadAll(){
       //console.log('SI, DIO <3');
@@ -42,5 +44,4 @@ export class CategorysComponent implements OnInit {
           })
       }
     }
-
 }

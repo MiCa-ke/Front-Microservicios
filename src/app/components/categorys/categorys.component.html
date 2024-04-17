@@ -1,6 +1,5 @@
 <h2 class="mb-5"> Mis categorias </h2>
 
-
 <div class="text-end">
     <button class="btn btn-primary" routerLink="/category-create">
         Nueva Categoria
@@ -16,6 +15,7 @@
             <th></th>
         </tr>
     </thead>
+    
     <tbody>
        @for (category of categorys; track category.id) {
          <tr>

@@ -21,14 +21,17 @@ export class Product {
     /**
 	 * Categoria a la que pertenece el producto
  	*/
-    public category_id: number;
+    public categoryId: number;
 
-	constructor(name: string, descripcion: string, precio: number, category_id: number, id?: number, ) {
+	public categoryName: string;
+
+	constructor(name: string, descripcion: string, precio: number, categoryId: number, categoryName: string, id?: number, ) {
         this.id = id;
         this.name = name;
 		this.descripcion = descripcion; 
         this.precio = precio;
-        this.category_id = category_id;
+        this.categoryId = categoryId;
+		this.categoryName = categoryName;
     }
 
 }

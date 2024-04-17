@@ -1,0 +1,49 @@
+<h2 class="mb-5">
+    @if(product){
+        Editar
+    } @else {
+        Nuevo
+    } Producto
+</h2>
+
+<div class="row row-cols-3 justify-content-center">
+    @if (form) {
+        <form [formGroup]="form" (submit)="save()">
+            <div class="mb-3">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" class="form-control"
+                formControlName="nombre">
+            </div>           
+            <div class="mb-3">
+                <label for="descripcion">Descripcion</label>
+                <input id="descripcion" type="text" class="form-control"
+                formControlName="descripcion">
+            </div>
+            <div class="mb-3">
+                <label for="precio">precio</label>
+                <input id="precio" type="text" class="form-control"
+                formControlName="precio">
+            </div> 
+
+            <mat-form-field class="mb-3">
+                <mat-label>Seleccione una categoría</mat-label>
+                <mat-select formControlName="categoryId">
+                    <mat-option *ngFor="let cat of category" [value]="cat.id">
+                        {{ cat.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-light" routerLink="/products">Cancelar</button>
+                <button class="btn btn-primary ms-2">
+                    @if(product){
+                        Actualizar
+                   } @else {
+                        Crear 
+                   } Producto
+                </button>
+                </div> 
+        </form>
+    }
+</div>

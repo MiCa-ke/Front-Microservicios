@@ -1,0 +1,33 @@
+<h2 class="mb-5">Nueva Factura</h2>
+
+<div class="row row-cols-3 justify-content-center"> 
+  <form [formGroup]="facturaForm" (ngSubmit)="guardarFactura()">
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+      <label for="nit">NIT:</label>
+      <input type="text" id="nit" formControlName="nit">
+    </div>
+    <div formArrayName="detalles">
+      <div *ngFor="let detalle of detalles.controls; let i = index" [formGroupName]="i">
+        <label for="productId">Producto:</label>
+        <select id="productId" formControlName="productId">
+          <option *ngFor="let product of product" [value]="product.id">{{ product.name }}</option>
+        </select>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" formControlName="precio" readonly>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" formControlName="cantidad">
+        <button type="button" (click)="eliminarDetalle(i)">Eliminar</button>
+      </div>
+    </div>
+    <div>
+      <button type="button" (click)="agregarDetalle()">Agregar Detalle</button>
+    </div>
+    <div>
+      <button type="submit">Guardar Factura</button>
+    </div>
+  </form>
+</div>
